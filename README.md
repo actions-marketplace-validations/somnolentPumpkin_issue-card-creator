@@ -39,8 +39,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Issue Card Creator
-        uses: ./action
-        id: hello
+        uses: somnolentPumpkin/issue-card-creator@Action
+        id: create
         with:
           actions: '{"data": [
             {
