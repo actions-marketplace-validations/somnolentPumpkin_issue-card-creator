@@ -26,7 +26,7 @@ inputs:
   github-token:
     description: "Your GitHub access token"
     required: true
-    default: ${{github.token}}
+    default: ${{secrets.ACCESS_TOKEN}}
 runs:
   using: "node12"
   main: "index.js"
