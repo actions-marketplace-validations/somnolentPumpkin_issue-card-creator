@@ -58,6 +58,7 @@ async function getAllProjects(dataMap, index) {
 
 function getProjectIdByName(name, projectList) {
   console.log(`Searching for project with name: ${name}.`);
+  console.log(`Contents of projectList: ${JSON.stringify(projectList)}`);
   for (let project in projectList.data) {
     if (projectList.data[project].name == name) {
       return projectList.data[project].id;
