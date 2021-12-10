@@ -1,6 +1,7 @@
 name: "Issue Card Creator"
-color: "purple"
-icon: "archive"
+branding:
+  color: "purple"
+  icon: "file-plus"
 description: "Create a card for an issue on one or more project boards, depending on the label(s)."
 inputs:
   actions:
