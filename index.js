@@ -59,15 +59,14 @@ async function getAllProjects(dataMap, index) {
 function getProjectIdByName(name, projectList) {
   console.log(`Searching for project with name: ${name}.`);
   for (let project in projectList.data) {
-    if (projectList[project].name == name) {
-      return projectList[project].id;
+    if (projectList.data[project].name == name) {
+      return projectList.data[project].id;
     }
   }
   return false;
 }
 
 async function getAllColumns(project_id) {
-  console.log(`Getting all columns for Project #${project_id}.`);
   return await octokit.rest.projects.listColumns({
     project_id: project_id,
   });
