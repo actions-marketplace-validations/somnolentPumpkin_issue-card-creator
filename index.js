@@ -72,16 +72,6 @@ async function getAllColumns(project_id) {
   });
 }
 
-function getProjectIdByName(name, projectList) {
-  for (let project in projectList.data) {
-    project = projectList.data[project];
-    if (project.name == name) {
-      return project.id;
-    }
-  }
-  return false;
-}
-
 function getColumnIdByName(name, columnList) {
   for (let column in columnList.data) {
     column = columnList.data[column];
