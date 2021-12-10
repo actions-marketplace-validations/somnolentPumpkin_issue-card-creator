@@ -2,6 +2,8 @@ name: "Issue Card Creator"
 description: "Create a card for an issue on one or more project boards, depending on the label(s)."
 inputs:
   actions:
+    color: "purple"
+    icon: "archive"
     description: "A JSON object containing the data for which labels create cards on which project board."
     required: true
     default: '{"data": [
