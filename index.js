@@ -11,12 +11,16 @@ function issueHasLabel(labelName, payload) {
 async function process(dataMap, payload) {
   for (let item in dataMap) {
     if (issueHasLabel(dataMap[item].label, payload)) {
+      console.log(`Getting all projects.`);
       const projectList = await getAllProjects(dataMap, item);
+      console.log(`Getting ID for project '${dataMap[item].project}'.`);
       const projectId = getProjectIdByName(dataMap[item].project, projectList);
       if (!projectId) {
         throw new Error(`Unable to retrieve project ID.`);
       }
+      console.log(`Getting all columns for project '${projectId}'.`);
       const columnList = await getAllColumns(projectId);
+      console.log(`Getting ID for column '${dataMap[item].column}'.`);
       const columnId = getColumnIdByName(dataMap[item].column, columnList);
       if (!columnId) {
         throw new Error(`Unable to retrieve column ID.`);
