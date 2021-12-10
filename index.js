@@ -13,8 +13,14 @@ async function process(dataMap, payload) {
     if (issueHasLabel(dataMap[item].label, payload)) {
       const projectList = await getAllProjects(dataMap, item);
       const projectId = getProjectIdByName(dataMap[item].project, projectList);
+      if (!projectId) {
+        throw new Error(`Unable to retrieve project ID.`);
+      }
       const columnList = await getAllColumns(projectId);
       const columnId = getColumnIdByName(dataMap[item].column, columnList);
+      if (!columnId) {
+        throw new Error(`Unable to retrieve column ID.`);
+      }
       const createIssue = await octokit.rest.projects.createCard({
         column_id: columnId,
         content_type: "Issue",
